@@ -1,0 +1,26 @@
+[
+    {
+        "image": "https://i.ibb.co/DV3Cztv/1.jpg",
+        "name": "Electronics cutter",
+        "description": "Here is Electronic cutter.you can cut any silver items using this",
+        "minimumOrder": 2000,
+        "AvailableQuantity": 5000,
+        "price": 200
+    },
+    {
+        "image": "https://i.ibb.co/r2sC68h/4.jpg",
+        "name": "sewing machine",
+        "description": "Here is Electronic cutter.you can make any cloth items using this",
+        "minimumOrder": 2000,
+        "AvailableQuantity": 5000,
+        "price": 300
+    },
+    {
+        "image": "https://i.ibb.co/N95zV71/2.jpg",
+        "name": "Drill machine",
+        "description": "Here is Drill machine.you can Drill any wall using this",
+        "minimumOrder": 2000,
+        "AvailableQuantity": 5000,
+        "price": 250
+    }
+]
