@@ -3,7 +3,7 @@ import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useToken from '../../Hooks/useToken';
-import auth from '../firebase.init';
+// import auth from '../firebase.init';
 const SocialMedia = () => {
     let navigate = useNavigate();
     let location = useLocation();
