@@ -7,7 +7,6 @@ const Header = () => {
     const [user] = useAuthState(auth)
     const HandleSignOut = (event) => {
         const values = event.target.value
-        console.log(values);
         signOut(auth)
     }
     return (
