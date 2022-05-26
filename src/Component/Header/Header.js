@@ -9,7 +9,7 @@ const Header = () => {
         signOut(auth)
     }
     return (
-        <div class="navbar bg-primary w-full px-24">
+        <div class="navbar bg-primary w-full px-28">
             <div class="navbar-start ">
                 <div class="dropdown">
                     <label tabindex="0" class="btn btn-warning lg:hidden ">

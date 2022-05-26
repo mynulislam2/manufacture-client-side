@@ -19,7 +19,7 @@ const ManageProducts = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`https://pacific-caverns-51824.herokuapp.com/order/${id}`, {
+                    fetch(`https://pacific-caverns-51824.herokuapp.com/tool/${id}`, {
                         method: 'DELETE',
                     })
                         .then(res => res.json())
