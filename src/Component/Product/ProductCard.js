@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-
+// this is product card
 const ProductCard = ({ product }) => {
     return (
         <div style={{height:"450px"}} class="card bg-base-100 shadow-xl">
