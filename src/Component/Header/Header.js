@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom';
 import auth from '../firebase.init';
 const Header = () => {
     const [user] = useAuthState(auth)
-    const HandleSignOut = (event) => {
-        const values = event.target.value
+    const HandleSignOut = () => {
         signOut(auth)
     }
     return (
