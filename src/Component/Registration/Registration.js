@@ -7,7 +7,7 @@ import useToken from '../../Hooks/useToken';
 import auth from '../firebase.init';
 import SocialMedia from '../SocialMedia/SocialMedia';
 import './Registration.css';
-
+// registration
 const Registration = () => {
     let navigate = useNavigate();
     const [errors, setErrors] = useState('');
