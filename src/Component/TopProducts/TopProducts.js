@@ -4,7 +4,7 @@ import TopProductCard from './TopProductCard';
 const TopProducts = () => {
     const [TopProducts, setTopProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/tools')
+        fetch('https://pacific-caverns-51824.herokuapp.com/tools')
             .then(res => res.json())
             .then(data => setTopProducts(data))
     }, []);

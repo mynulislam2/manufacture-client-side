@@ -11,7 +11,7 @@ const Header = () => {
         signOut(auth)
     }
     return (
-        <div class="navbar bg-primary w-full px-20">
+        <div class="navbar bg-primary w-full px-24">
             <div class="navbar-start ">
                 <div class="dropdown">
                     <label tabindex="0" class="btn btn-warning lg:hidden ">
@@ -19,9 +19,8 @@ const Header = () => {
                     </label>
                     <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to='/' className='text-secondary'>Home</Link></li>
-
-                        <li><a className='text-secondary'>Item 2</a></li>
-                        <li><a className='text-secondary'>Item 3</a></li>
+                        <li><Link to='/myPortfolio' className='text-secondary'>My Portfolio</Link></li>
+                        <Link to='Blogs' className='text-secondary'>Blogs</Link>
                     </ul>
                 </div>
                 <a class="btn btn-ghost normal-case text-xl text-secondary w-20 h-20 ">jontro</a>
@@ -31,7 +30,7 @@ const Header = () => {
                     <li><Link to='/' className='text-secondary'>Home</Link></li>
 
                     <li><Link to='/myPortfolio' className='text-secondary'>My Portfolio</Link></li>
-                    <li><a className='text-secondary'>Item 3</a></li>
+                    <li><Link to='Blogs' className='text-secondary'>Blogs</Link></li>
                 </ul>
             </div>
             <div class="navbar-end text-secondary">
@@ -43,7 +42,7 @@ const Header = () => {
                     </ul>
                 </div>
                 }
-                            {!user && <Link to='/login' >Log in</Link>}
+                {!user && <Link to='/login' >Log in</Link>}
 
             </div>
         </div>

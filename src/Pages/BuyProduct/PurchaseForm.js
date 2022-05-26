@@ -30,7 +30,7 @@ const PurchaseForm = ({ OrderQuantity, DetailData, Order }) => {
         const ProductName = event.target.ProductName.value
         const Quantity = event.target.Quantity.value
         const data = { userName, userEmail, userAddress, userPhoneNumber, ProductName, Quantity, Total }
-        fetch('http://localhost:5000/order', {
+        fetch('https://pacific-caverns-51824.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ const PurchaseForm = ({ OrderQuantity, DetailData, Order }) => {
     }
 
     return (
-        <div className='px-8 lg:w-2/3 sm:w-full  grid lg:grid-cols-2 sm:grid-cols-1 gap-x-20 mx-auto'>
+        <div className='px-8 lg:w-1/3 sm:w-full  gap-x-20 mx-auto'>
             <div className=' mt-5'>
                 <form onSubmit={purchase} className='grid grid-cols-1 gap-y-3 text-secondary'>
                     <input type="text"
@@ -73,14 +73,6 @@ const PurchaseForm = ({ OrderQuantity, DetailData, Order }) => {
 
                     <input disabled={OrderQuantity < minimumOrder || AvailableQuantity < OrderQuantity ? Disable : false} type="submit" value="purchase" className='btn btn-primary' />
                 </form>
-            </div>
-            <div class="card text-accent w-96 h-56 bg-base-100 shadow-xl p-10 border-2 mt-5">
-                <div class="card-body flex-grow-0">
-                    <h2 class="card-title">Order Summary</h2>
-                    <p >price per piece:{DetailData?.price}</p>
-                    <p>Shipment:{12}$</p>
-                    <p>Total Price:{Total + 12}$</p>
-                </div>
             </div>
         </div>
 

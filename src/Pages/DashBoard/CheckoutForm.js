@@ -15,7 +15,7 @@ const CheckoutForm = ({ PaymentDetail }) => {
     const [TransactionID, setTransactionID] = useState('');
     useEffect(() => {
         if (Price) {
-            fetch("http://localhost:5000/create-payment-intent", {
+            fetch("https://pacific-caverns-51824.herokuapp.com/create-payment-intent", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -76,7 +76,7 @@ const CheckoutForm = ({ PaymentDetail }) => {
             id: _id,
             TransactionID: TransactionID
         }
-        fetch(`http://localhost:5000/order/${_id}`, {
+        fetch(`https://pacific-caverns-51824.herokuapp.com/order/${_id}`, {
             method: 'PUT', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
@@ -88,32 +88,45 @@ const CheckoutForm = ({ PaymentDetail }) => {
             .then(data => console.log(data))
     }
     return (
-        <div className='card w-2/5 border-accent shadow-lg mx-auto mt-10 mb-10 text-slate-800'>
-            {ErrorCard && <p className='text-center text-error'>{ErrorCard}</p>}
-            {Success && <p className='text-center text-success'>your Transaction is {TransactionID} <br />{Success}</p>}
-            <form onSubmit={handleSubmit} className="card-body">
-                <CardElement
-                    options={{
-                        style: {
-                            base: {
-                                fontSize: '16px',
-                                color: '#424770',
-                                '::placeholder': {
-                                    color: '#aab7c4',
+        <div className='px-16 lg:w-2/4 sm:w-full mx-auto gap-x-10'>
+            <div className='card w-full border-accent shadow-lg mx-auto mt-10 mb-10 text-slate-800'>
+                {ErrorCard && <p className='text-center text-error'>{ErrorCard}</p>}
+                {Success && <p className='text-center text-success'>your Transaction is {TransactionID} <br />{Success}</p>}
+                <form onSubmit={handleSubmit} className="card-body">
+                    <CardElement
+                        options={{
+                            style: {
+                                base: {
+                                    fontSize: '16px',
+                                    color: '#424770',
+                                    '::placeholder': {
+                                        color: '#aab7c4',
+                                    },
+                                },
+                                invalid: {
+                                    color: '#9e2146',
                                 },
                             },
-                            invalid: {
-                                color: '#9e2146',
-                            },
-                        },
-                    }}
-                />
-                <button type="submit" className='btn btn-primary' disabled={!stripe || !clientSecret}>
-                    Pay
-                </button>
-            </form>
+                        }}
+                    />
+                    <button type="submit" className='btn btn-primary' disabled={!stripe || !clientSecret}>
+                        Pay
+                    </button>
+                </form>
 
+            </div>
+
+
+            <div class="card text-accent  h-40 bg-base-100 shadow-xl   mt-5">
+                <div class="card-body flex-grow-0">
+                    <h2 class="card-title">Order Summary</h2>
+                    <p>Product Name :{PaymentDetail.ProductName}</p>
+                    <p>Product Name :{PaymentDetail.Quantity}</p>
+                    <p>Product Name :{PaymentDetail.price}</p>
+                </div>
+            </div>
         </div>
+
     );
 };
 

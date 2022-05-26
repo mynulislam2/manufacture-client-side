@@ -12,7 +12,7 @@ const ProductCard = ({ product }) => {
                 {product?.name} 
                     <div class="badge  badge-secondary text-xs">Available:{product?.AvailableQuantity}</div>
                 </h2>
-                <p className='text-secondary'>{product?.description}</p>
+                <p className='text-secondary flex-grow-0'>{product?.description}</p>
                 <div class="card-actions justify-start text-accent">
                     <div>${product?.price}</div>
                     <div>min-order{product?.minimumOrder}</div>

@@ -11,7 +11,11 @@ const Payment = () => {
     const{id}=useParams()
     const [PaymentDetail, setPaymentDetail] = useState([]);
 useEffect(() => {
-    fetch(`http://localhost:5000/pay/${id}`)
+    fetch(`https://pacific-caverns-51824.herokuapp.com/pay/${id}`,{
+        headers:{
+            authorization:`Bearer ${localStorage?.getItem('accessToken')}`
+            },
+    })
     .then(res=>res.json())
     .then(data=>setPaymentDetail(data))
 }, [id]);    

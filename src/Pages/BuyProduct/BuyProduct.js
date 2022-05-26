@@ -7,7 +7,7 @@ const BuyProduct = () => {
     const [DetailData, setDetailData] = useState();
     const [Order, setOrder] = useState(0);
     useEffect(() => {
-        fetch(`http://localhost:5000/tool/${id}`)
+        fetch(`https://pacific-caverns-51824.herokuapp.com/tool/${id}`)
             .then(res => res.json())
             .then(data => setDetailData(data[0]))
     }, []);

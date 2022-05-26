@@ -1,8 +1,9 @@
 import { CircularProgress } from '@mui/material';
 import React, { useState } from 'react';
-import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
+import useToken from '../../Hooks/useToken';
 import auth from '../firebase.init';
 import SocialMedia from '../SocialMedia/SocialMedia';
 import './Registration.css';
@@ -11,7 +12,6 @@ const Registration = () => {
     let navigate = useNavigate();
     const [errors, setErrors] = useState('');
     const [updateProfile, updating, error2] = useUpdateProfile(auth);
-
     const [
         createUserWithEmailAndPassword,
         user,
@@ -19,11 +19,14 @@ const Registration = () => {
         error,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
+    const [token]  = useToken(user);
 
+
+
+    const [user1] = useAuthState(auth)
     const HandleSignUp = async (event) => {
         event.preventDefault()
         const name = event.target.name.value
-        console.log(name);
         const email = event.target.email.value
         const password = event.target.password.value
         const checked = event.target.check.checked
@@ -41,18 +44,28 @@ const Registration = () => {
         }
 
     }
-    if (!error && user) {
+    if (token) {
+        const email = user1?.email
+        console.log(email);
+        fetch(`https://pacific-caverns-51824.herokuapp.com/userRegistration/${email}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
         swal("Successfully Registered!", "check your email to verify");
         navigate('/')
     }
+
     return (
         <div className='container text-secondary'>
             <div>
 
-
-                {
-                    loading || updating && <div style={{ height: "100vh" }} className='flex justify-center items-center'> <CircularProgress />  </div>
+                {loading || updating && <div style={{ height: "100vh" }} className='flex justify-center items-center'> <CircularProgress />  </div>
                 }
+
                 <div className={`card w-1/3 mx-auto border-0 shadow rounded my-1 ${loading && "registration"}`}>
                     <div className="p-4">
                         <div className=" text-center mb-5">Sign Up</div>

@@ -2,6 +2,7 @@ import { CircularProgress } from '@mui/material';
 import React, { useState } from 'react';
 import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useToken from '../../Hooks/useToken';
 import auth from '../firebase.init';
 import SocialMedia from '../SocialMedia/SocialMedia';
 
@@ -18,7 +19,9 @@ const Login = () => {
         SignInLoading,
         SignInError,
     ] = useSignInWithEmailAndPassword(auth);
-    if (SignInUser) {
+    const [token]  = useToken(SignInUser);
+
+    if (token) {
         navigate(from, { replace: true });
     }
 

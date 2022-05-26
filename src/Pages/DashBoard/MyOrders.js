@@ -9,7 +9,11 @@ const MyOrders = () => {
     const [MyOrders, setMyOrders] = useState([]);
     console.log(MyOrders);
     useEffect(() => {
-        fetch(`http://localhost:5000/order/?email=${user?.email}`)
+        fetch(`https://pacific-caverns-51824.herokuapp.com/order/?email=${user?.email}`,{
+            headers:{
+                authorization:`Bearer ${localStorage?.getItem('accessToken')}`
+                },
+        })
             .then(res => res.json())
             .then(data => setMyOrders(data))
     }, [user?.email]);
@@ -23,7 +27,7 @@ const MyOrders = () => {
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    fetch(`http://localhost:5000/order/${id}`, {
+                    fetch(`https://pacific-caverns-51824.herokuapp.com/order/${id}`, {
                         method: 'DELETE',
                     })
                         .then(res => res.json())
