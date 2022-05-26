@@ -1,5 +1,5 @@
 import React from 'react';
-
+// fotter for all page
 const Footer = () => {
     return (
         <div className='flex justify-center'>
