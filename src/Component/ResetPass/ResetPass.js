@@ -4,7 +4,7 @@ import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 import auth from '../firebase.init';
-
+// pass reset
 const ResetPass = () => {
     const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(
         auth
