@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Banner2Card from './Banner2Card';
-
+// home banner 2
 const Banner2 = () => {
     const [Banner2Data, setBanner2Data] = useState([]);
 useEffect(() => {
