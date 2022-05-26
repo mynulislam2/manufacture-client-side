@@ -6,7 +6,6 @@ import "swiper/css/pagination";
 import "swiper/css/bundle";
 import "./style.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-// const swiper = new Swiper('');
 const Banner = () => {
   return (
     <div>
